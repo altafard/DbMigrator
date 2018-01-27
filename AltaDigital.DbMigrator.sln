@@ -1,19 +1,8 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbMigrator", "src\DbMigrator\DbMigrator.csproj", "{04887EA1-A6ED-4A38-9331-9B122EB0B14C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "test\Web\Web.csproj", "{D5D99E07-FEA2-442B-A132-89CB52E33491}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C1648AFF-B33B-46FA-ADF4-4D4A7F0128F8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Migrations", "test\Migrations\Migrations.csproj", "{904718CC-16A0-4B86-8C72-076F57DDCE04}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Npgsql", "src\Npgsql\Npgsql.csproj", "{998245CA-9D6E-4440-BB4D-C855F07D97FC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "test\ConsoleApp\ConsoleApp.csproj", "{868AE94E-C63D-4D0A-9C35-562AD97E2BCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,30 +14,9 @@ Global
 		{04887EA1-A6ED-4A38-9331-9B122EB0B14C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04887EA1-A6ED-4A38-9331-9B122EB0B14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04887EA1-A6ED-4A38-9331-9B122EB0B14C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5D99E07-FEA2-442B-A132-89CB52E33491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5D99E07-FEA2-442B-A132-89CB52E33491}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5D99E07-FEA2-442B-A132-89CB52E33491}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5D99E07-FEA2-442B-A132-89CB52E33491}.Release|Any CPU.Build.0 = Release|Any CPU
-		{904718CC-16A0-4B86-8C72-076F57DDCE04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{904718CC-16A0-4B86-8C72-076F57DDCE04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{904718CC-16A0-4B86-8C72-076F57DDCE04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{904718CC-16A0-4B86-8C72-076F57DDCE04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{998245CA-9D6E-4440-BB4D-C855F07D97FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{998245CA-9D6E-4440-BB4D-C855F07D97FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{998245CA-9D6E-4440-BB4D-C855F07D97FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{998245CA-9D6E-4440-BB4D-C855F07D97FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{868AE94E-C63D-4D0A-9C35-562AD97E2BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{868AE94E-C63D-4D0A-9C35-562AD97E2BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{868AE94E-C63D-4D0A-9C35-562AD97E2BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{868AE94E-C63D-4D0A-9C35-562AD97E2BCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{D5D99E07-FEA2-442B-A132-89CB52E33491} = {C1648AFF-B33B-46FA-ADF4-4D4A7F0128F8}
-		{904718CC-16A0-4B86-8C72-076F57DDCE04} = {C1648AFF-B33B-46FA-ADF4-4D4A7F0128F8}
-		{868AE94E-C63D-4D0A-9C35-562AD97E2BCA} = {C1648AFF-B33B-46FA-ADF4-4D4A7F0128F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {511CCF5E-B0ED-443F-BF96-FD8943831C13}

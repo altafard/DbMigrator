@@ -7,11 +7,20 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AltaDigital.DbMigrator.Extensions
 {
+    /// <summary>
+    /// Extensions for confuguring .NET Core DI.
+    /// </summary>
     public static class ServiceCollectionExtensions
     {
         private static readonly Func<Type, bool> IsMigration = 
             type => typeof(IMigration).IsAssignableFrom(type) && type.IsAbstract == false;
 
+        /// <summary>
+        /// Injecting DbMigrator and its dependencies to services collection.
+        /// </summary>
+        /// <param name="services">Services collection</param>
+        /// <param name="options">Migration configuration</param>
+        /// <param name="migrationsAssembly">Assambly with migrations</param>
         public static IServiceCollection AddDbMigrator(this IServiceCollection services, Action<IMigratorConfiguration> options, Assembly migrationsAssembly = null)
         {
             if (options == null)
