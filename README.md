@@ -52,3 +52,7 @@ All implementations of `IMigration` will automatically added to service collecti
 ```c#
 services.AddDbMigrator(cfg => cfg.Use<NpgsqlMigrationContext>( ... ), typeof(CreateTableMigration).Assembly);
 ```
+
+## Feedback
+
+All contributions are welcome. I will glad to discuss all suggestions and troubles.
