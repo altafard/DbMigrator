@@ -17,14 +17,14 @@ namespace AltaDigital.DbMigrator.Core
 
         /// <inheritdoc />
         /// <typeparam name="T">Type of migration context implementation</typeparam>
-        public void Use<T>(DbConnectionConfig config) where T : class, IMigrationContext
+        public void Use<T>(string connectionString) where T : class, IMigrationContext
         {
             Type type = typeof(T);
             if (type.IsAbstract)
                 throw new ArgumentException("Configurator must get implementation of interface IMigrationContext", nameof(T));
 
             this.ContextType = type;
-            this.ContextConfig = config;
+            this.ContextConfig = new DbConnectionConfig(connectionString);
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using AltaDigital.DbMigrator.Configurations;
-
-namespace AltaDigital.DbMigrator
+﻿namespace AltaDigital.DbMigrator
 {
     /// <summary>
     /// Default interface for DbMigrator configuring.
@@ -11,6 +9,7 @@ namespace AltaDigital.DbMigrator
         /// Sets migration context to use.
         /// </summary>
         /// <typeparam name="T">Type of migration context implementation</typeparam>
-        void Use<T>(DbConnectionConfig config) where T : class, IMigrationContext;
+        /// <param name="connectionString">Connection string to database</param>
+        void Use<T>(string connectionString) where T : class, IMigrationContext;
     }
 }
