@@ -1,16 +1,23 @@
-﻿namespace AltaDigital.DbMigrator
+﻿using System.Threading.Tasks;
+
+namespace AltaDigital.DbMigrator.Core
 {
     /// <summary>
     /// Base migration implementation with defined comparator.
     /// </summary>
     public abstract class MigrationBase : IMigration
     {
+        /// <inheritdoc />
         public abstract long Key { get; }
 
-        public abstract void Up(IMigrationAction action);
+        /// <inheritdoc />
+        public abstract Task UpAsync(IMigrationAction action);
 
-        public abstract void Down(IMigrationAction action);
+        /// <inheritdoc />
+        public abstract Task DownAsync(IMigrationAction action);
 
+        /// <inheritdoc />
+        /// <param name="other">Migration for compare</param>
         public int CompareTo(IMigration other)
         {
             if (this.Key > other.Key)

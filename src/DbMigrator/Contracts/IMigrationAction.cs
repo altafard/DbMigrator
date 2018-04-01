@@ -1,4 +1,6 @@
-﻿namespace AltaDigital.DbMigrator
+﻿using System.Threading.Tasks;
+
+namespace AltaDigital.DbMigrator
 {
     /// <summary>
     /// Migration actions.
@@ -9,6 +11,6 @@
         /// Execute SQL query.
         /// </summary>
         /// <param name="sql">SQL-script</param>
-        void ExecuteSql(string sql);
+        Task ExecuteAsync(string sql);
     }
 }

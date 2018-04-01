@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using AltaDigital.DbMigrator.Core;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AltaDigital.DbMigrator.Extensions
 {
     /// <summary>
-    /// Extensions for confuguring .NET Core DI.
+    /// Extensions for confuguring .NET Core DI and web-application pipeline.
     /// </summary>
-    public static class ServiceCollectionExtensions
+    public static class StartupExtensions
     {
         private static readonly Func<Type, bool> IsMigration = 
             type => typeof(IMigration).IsAssignableFrom(type) && type.IsAbstract == false;
@@ -32,17 +33,28 @@ namespace AltaDigital.DbMigrator.Extensions
 
             foreach (Type type in migrationTypes)
             {
-                services.AddSingleton(typeof(IMigration), type);
+                services.AddTransient(type);
             }
             
             var cfg = new MigrationConfiguration();
             options(cfg);
 
             services.AddSingleton(cfg.ContextConfig);
-            services.AddSingleton(typeof(IMigrationContext), cfg.ContextType);
-            services.AddTransient<IMigrator, Migrator>();
+            services.AddTransient(typeof(IMigrationContextFactory<>), typeof(MigrationContextFactory<>));
+            services.AddTransient(typeof(IMigrator<>), typeof(Migrator<>));
 
             return services;
+        }
+
+        /// <summary>
+        /// Default way for using DbMigrator.
+        /// </summary>
+        /// <param name="app">Application builder pipeline</param>
+        /// <param name="action">Migrator's action</param>
+        public static void UseDbMigrator<TContext>(this IApplicationBuilder app, Action<IMigrator<TContext>> action) where TContext : IMigrationContext
+        {
+            var migrator = app.ApplicationServices.GetService<IMigrator<TContext>>();
+            action(migrator);
         }
     }
 }

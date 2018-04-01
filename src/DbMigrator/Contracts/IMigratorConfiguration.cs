@@ -10,6 +10,7 @@
         /// </summary>
         /// <typeparam name="T">Type of migration context implementation</typeparam>
         /// <param name="connectionString">Connection string to database</param>
-        void Use<T>(string connectionString) where T : class, IMigrationContext;
+        /// <param name="ensureDatabaseExists">Ensure database exists</param>
+        void Use<T>(string connectionString, bool ensureDatabaseExists = true) where T : IMigrationContext;
     }
 }

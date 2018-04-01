@@ -17,23 +17,24 @@ namespace AltaDigital.DbMigrator
         /// <summary>
         /// Stores applied migrations.
         /// </summary>
-        IDictionary<long, string> AppliedMigrations { get; }
-        
+        IReadOnlyDictionary<long, string> AppliedMigrations { get; }
+
         /// <summary>
         /// Initializes context.
         /// </summary>
-        Task Init();
+        /// <returns>Returns TRUE if context initialized, FALSE in other case.</returns>
+        Task<bool> InitAsync();
 
         /// <summary>
         /// Includes migrations to applied list.
         /// </summary>
         /// <param name="migrations">Migrations to include</param>
-        Task Include(IEnumerable<IMigration> migrations);
+        Task IncludeAsync(IEnumerable<IMigration> migrations);
 
         /// <summary>
         /// Excludes migrations from applied list.
         /// </summary>
         /// <param name="migrations">Migrations for exclude</param>
-        Task Exclude(IEnumerable<IMigration> migrations);
+        Task ExcludeAsync(IEnumerable<IMigration> migrations);
     }
 }
