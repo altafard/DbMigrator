@@ -21,23 +21,20 @@ namespace AltaDigital.DbMigrator.Extensions
         /// </summary>
         /// <param name="services">Services collection</param>
         /// <param name="options">Migration configuration</param>
-        /// <param name="migrationsAssembly">Assambly with migrations</param>
-        public static IServiceCollection AddDbMigrator(this IServiceCollection services, Action<IMigratorConfiguration> options, Assembly migrationsAssembly = null)
+        public static IServiceCollection AddDbMigrator(this IServiceCollection services, Action<IMigratorConfiguration> options)
         {
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
+            
+            var cfg = new MigrationConfiguration();
+            options(cfg);
 
-            IEnumerable<Type> migrationTypes = migrationsAssembly == null
-                ? AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).Where(IsMigration)
-                : migrationsAssembly.GetTypes().Where(IsMigration);
-
+            if (cfg.MigrationsAssemblies.Count == 0) cfg.SetMigrationsAssembly(Assembly.GetExecutingAssembly());
+            IEnumerable<Type> migrationTypes = cfg.MigrationsAssemblies.SelectMany(assembly => assembly.GetTypes().Where(IsMigration));
             foreach (Type type in migrationTypes)
             {
                 services.AddTransient(type);
             }
-            
-            var cfg = new MigrationConfiguration();
-            options(cfg);
 
             services.AddSingleton(cfg.ContextConfig);
             services.AddTransient(typeof(IMigrationContextFactory<>), typeof(MigrationContextFactory<>));
