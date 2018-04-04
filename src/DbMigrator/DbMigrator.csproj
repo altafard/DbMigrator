@@ -4,14 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>AltaDigital.DbMigrator</AssemblyName>
     <RootNamespace>AltaDigital.DbMigrator</RootNamespace>
-    <PackageVersion>2.0.1</PackageVersion>
+    <PackageVersion>2.0.2</PackageVersion>
     <Title>AltaDigital.DbMigrator</Title>
     <Authors>Alexandr Pilipenko</Authors>
     <Description>Simple migration for databases on .NET</Description>
     <Copyright>Copyright (c) 2018 Alexandr Pilipenko</Copyright>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Altafard/DbMigrator</PackageProjectUrl>
-    <PackageReleaseNotes>Migration assembly configuration was moved from services provider extension to MigrationConfiguration</PackageReleaseNotes>
     <PackageTags>C#;database;migration</PackageTags>
   </PropertyGroup>
 

@@ -33,7 +33,7 @@ namespace AltaDigital.DbMigrator.Extensions
             IEnumerable<Type> migrationTypes = cfg.MigrationsAssemblies.SelectMany(assembly => assembly.GetTypes().Where(IsMigration));
             foreach (Type type in migrationTypes)
             {
-                services.AddTransient(type);
+                services.AddTransient(typeof(IMigration), type);
             }
 
             services.AddSingleton(cfg.ContextConfig);
